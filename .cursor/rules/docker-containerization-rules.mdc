@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for Docker & Containerization
+
+## Dockerfile Best Practices
+- Use multi-stage builds to reduce image size
+- Base images on specific versions, not 'latest' tag
+- Minimize layer count by combining related operations
+- Use .dockerignore to exclude unnecessary files
+- Set proper USER instruction to avoid running as root
+
+## Image Optimization
+- Install only required dependencies
+- Remove package manager caches after installation
+- Use lightweight base images (Alpine variants where possible)
+- Implement proper layer caching strategy
+- Optimize build context size
+
+## Container Security
+- Scan images for vulnerabilities before deployment
+- Don't store secrets in Docker images
+- Use non-root users for running applications
+- Keep base images updated with security patches
+- Remove development dependencies from production images
+
+## Application Configuration
+- Use environment variables for configuration
+- Implement proper signal handling in applications
+- Set up appropriate logging to stdout/stderr
+- Configure proper health check endpoints
+- Handle graceful shutdowns
+
+## Container Resource Management
+- Set appropriate memory and CPU limits
+- Configure proper ulimits for the application
+- Set up cgroup constraints where necessary
+- Optimize JVM settings if using Java applications
+- Configure proper heap sizes for Node.js applications
+
+## Container Networking
+- Use bridge networks for local development
+- Expose only necessary ports
+- Implement proper DNS resolution configuration
+- Configure health checks for service discovery
+- Use appropriate network modes for different scenarios
+
+## Continuous Integration
+- Build images as part of CI pipeline
+- Tag images with commit SHA and semantic versions
+- Push to trusted registry with proper authentication
+- Implement proper caching for faster builds
+- Run container security scanning in CI pipeline

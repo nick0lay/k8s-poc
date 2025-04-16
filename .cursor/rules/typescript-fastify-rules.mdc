@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for TypeScript & Fastify
+
+## General TypeScript Guidelines
+- Use TypeScript strict mode for all files
+- Prefer interfaces over types for object definitions
+- Use async/await for all asynchronous operations
+- Maintain consistent naming conventions (camelCase for variables, PascalCase for classes)
+- Export types for all public interfaces
+
+## Fastify Application Structure
+- Use the Fastify plugin architecture for route organization
+- Implement proper request validation using JSON Schema
+- Organize routes into separate files under a `routes` directory
+- Implement proper error handling with custom error classes
+- Use dependency injection patterns for services and repositories
+
+## Code Quality Rules
+- Ensure all functions and methods have proper return types
+- Add JSDoc comments for public APIs and complex functions
+- Use ESLint rules from the shared config
+- Avoid `any` types; use proper type definitions
+- Implement proper error handling with try/catch blocks
+
+## Performance Considerations
+- Use connection pooling for any database connections
+- Implement proper request validation using JSON Schema
+- Set appropriate timeouts for external service calls
+- Use pino for structured logging with appropriate log levels
+- Implement caching strategies where applicable
+
+## Testing Guidelines
+- Write unit tests for business logic
+- Implement integration tests for API endpoints
+- Use test fixtures for consistent test data
+- Mock external dependencies in unit tests
+- Use proper assertions with descriptive error messages
+
+## Environment Configuration
+- Use environment variables for configuration
+- Provide sensible defaults for all configuration options
+- Validate environment variables on startup
+- Keep sensitive information out of the codebase
+- Use a configuration validation library (like joi or zod)

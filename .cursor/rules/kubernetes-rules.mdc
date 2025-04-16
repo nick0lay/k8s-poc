@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for Kubernetes
+
+## Resource Definition Best Practices
+- Use YAML for all Kubernetes manifest files
+- Implement proper resource requests and limits for all containers
+- Set appropriate probes (readiness, liveness) for all deployments
+- Use namespaces for resource organization
+- Add appropriate labels and annotations to all resources
+
+## Deployment Configuration
+- Use Deployment resources for stateless applications
+- Configure update strategies (RollingUpdate preferred)
+- Set appropriate replica counts based on environment
+- Implement pod disruption budgets for critical services
+- Use pod anti-affinity rules for high-availability services
+
+## Service Configuration
+- Define appropriate service types (ClusterIP, NodePort, LoadBalancer)
+- Set correct target ports and selectors
+- Configure session affinity if required
+- Implement proper health check endpoints
+- Add service annotations for cloud provider integration
+
+## ConfigMap and Secret Management
+- Use ConfigMaps for non-sensitive configuration
+- Implement Secrets for sensitive information
+- Mount configuration as volumes or environment variables
+- Use immutable ConfigMaps where possible
+- Follow naming conventions for configuration resources
+
+## Scaling and Resource Management
+- Implement Horizontal Pod Autoscaler (HPA) resources
+- Configure appropriate CPU/memory thresholds for scaling
+- Set proper min/max replica counts
+- Use Vertical Pod Autoscaler where appropriate
+- Implement custom metrics for scaling when necessary
+
+## Networking and Ingress
+- Configure Ingress resources with proper annotations
+- Implement TLS for all public-facing services
+- Set up proper backend service configurations
+- Configure appropriate path rules and host-based routing
+- Use network policies to restrict pod-to-pod communication
+
+## Security Considerations
+- Implement Pod Security Policies
+- Configure ServiceAccounts with minimum permissions
+- Use RBAC for access control
+- Run containers as non-root users
+- Scan container images for vulnerabilities

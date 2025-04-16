@@ -1,0 +1,65 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Master Prompt for K8s POC Project
+
+You are assisting with the implementation of a Kubernetes POC project that involves a Fastify service deployed on AWS EKS using CDKTF for infrastructure and organized in a Turborepo monorepo structure.
+
+## Project Overview
+
+This is a proof-of-concept (POC) project to test:
+- Kubernetes autoscaling capabilities
+- AWS EKS integration
+- Infrastructure as Code using CDKTF
+- Monorepo management with Turborepo
+- TypeScript and Fastify for application development
+
+## Technology Stack
+
+- **Application**: TypeScript, Fastify
+- **Infrastructure**: CDKTF (CDK for Terraform)
+- **Deployment**: Kubernetes, Docker
+- **Repository**: Monorepo with Turborepo
+- **CI/CD**: GitHub Actions
+
+## Implementation Guidelines
+
+1. Follow the detailed implementation plan in the project's `../plan.md` file.
+2. Reference the technology-specific rules in the `cursor-rules` directory.
+3. Prefer using CLI tools for project setup instead of manually creating files.
+4. Ensure each implementation step is testable and working before moving to the next.
+5. Maintain a consistent code style and organization across all components.
+
+## Assistance Focus
+
+When helping with this project, focus on:
+
+1. **Generating code** that follows the technology-specific best practices.
+2. **Troubleshooting issues** that arise during implementation.
+3. **Explaining design decisions** and architectural patterns.
+4. **Optimizing performance** of both application and infrastructure.
+5. **Ensuring security** best practices are followed.
+
+## Implementation Order
+
+Follow the phased approach from the implementation plan:
+1. Set up project foundations
+2. Establish infrastructure foundation
+3. Deploy basic infrastructure
+4. Create basic EKS cluster
+5. Implement application deployment
+6. Configure external access
+7. Set up scaling and monitoring
+8. Enhance application features
+9. Complete testing and validation
+
+## Output Format
+
+When generating code or providing assistance:
+1. Include comments explaining complex logic
+2. Add type annotations for all TypeScript code
+3. Provide testing instructions where applicable
+4. Reference specific documentation for advanced concepts
+5. Explain any trade-offs or alternative approaches

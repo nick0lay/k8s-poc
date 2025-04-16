@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for CDKTF Infrastructure
+
+## CDKTF Project Structure
+- Organize infrastructure code into logical classes/modules
+- Use a component-based approach (e.g., networking, compute, database)
+- Create reusable constructs for common infrastructure patterns
+- Implement proper dependency management between resources
+- Separate environment-specific configurations
+
+## TypeScript Best Practices
+- Use interfaces to define resource properties
+- Create strongly typed constructs
+- Implement proper error handling for deployment operations
+- Use async/await for asynchronous operations
+- Add meaningful comments for complex infrastructure patterns
+
+## AWS Resources
+- Follow AWS best practices for resource naming
+- Implement proper IAM roles with least privilege
+- Use security groups with minimum required access
+- Configure VPC with public and private subnets
+- Implement proper tagging strategy for resources
+
+## EKS Cluster Configuration
+- Use managed node groups for worker nodes
+- Configure autoscaling for node groups
+- Implement EKS add-ons through CDKTF
+- Set up proper logging and monitoring
+- Configure IRSA (IAM Roles for Service Accounts)
+
+## State Management
+- Use remote state for production environments
+- Configure state locking to prevent concurrent modifications
+- Implement proper backend configuration
+- Consider state file encryption for sensitive data
+- Add comments explaining state configuration decisions
+
+## Output Management
+- Export essential resource identifiers as outputs
+- Create helpful output messages for deployment completion
+- Implement resource dependency graph visualization
+- Provide clear error messages for failed deployments
+- Export endpoints and connection information
+
+## Security Considerations
+- Avoid hardcoding sensitive values
+- Use AWS Secrets Manager or Parameter Store for secrets
+- Implement proper encryption for data at rest
+- Configure proper network ACLs and security groups
+- Follow principle of least privilege for IAM roles

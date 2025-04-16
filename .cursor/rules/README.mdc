@@ -1,0 +1,35 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for K8s POC Implementation
+
+This directory contains AI rules for Cursor to assist you in implementing the K8s POC project. Each file contains guidelines for a specific technology stack or aspect of the project.
+
+## How to Use These Rules
+
+1. When working with Cursor AI, you can reference these rules based on the part of the project you're working on.
+2. You can ask Cursor to "follow the guidelines in the cursor-rules directory" for specific assistance.
+3. These rules should be considered as guidelines, not strict requirements. Adapt them as needed for your specific implementation.
+
+## Available Rule Sets
+
+- **typescript-fastify-rules.md**: Guidelines for TypeScript and Fastify application development
+- **cdktf-infrastructure-rules.md**: Rules for infrastructure management with CDKTF
+- **kubernetes-rules.md**: Best practices for Kubernetes resource definitions
+- **docker-containerization-rules.md**: Guidelines for containerization and Docker
+- **turborepo-monorepo-rules.md**: Rules for monorepo management with Turborepo
+- **cicd-github-actions-rules.md**: Guidelines for CI/CD with GitHub Actions
+
+## Example Usage with Cursor
+
+When working on a specific part of the project, you can guide Cursor with commands like:
+
+- "Help me create a Fastify route following the typescript-fastify-rules.md guidelines"
+- "Review this Kubernetes deployment manifest using the kubernetes-rules.md best practices"
+- "Assist me with writing a CDKTF module for the VPC following cdktf-infrastructure-rules.md"
+
+## Integration with Implementation Plan
+
+These rules are designed to support the implementation plan outlined in the `plan.md` file. Reference both the plan and these rules when working on specific tasks to ensure consistent and high-quality implementation.

@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for CI/CD & GitHub Actions
+
+## Workflow Structure
+- Organize workflows by purpose (build, test, deploy)
+- Use meaningful workflow and job names
+- Implement proper workflow triggers (push, pull_request, etc.)
+- Configure concurrency limits for deployments
+- Set up proper dependencies between jobs
+
+## GitHub Actions Best Practices
+- Use specific versions for actions, not 'latest'
+- Implement proper caching for dependencies and builds
+- Set up matrix builds for testing across environments
+- Configure timeout limits for long-running jobs
+- Use reusable workflows for common patterns
+
+## Security Considerations
+- Store secrets in GitHub Secrets, never in code
+- Implement proper permissions for workflows
+- Use OIDC for cloud provider authentication
+- Configure proper token permissions
+- Scan workflows for security vulnerabilities
+
+## Container Builds
+- Use GitHub Container Registry for storing images
+- Implement proper tagging strategy
+- Cache Docker layers for faster builds
+- Run vulnerability scanning during the build process
+- Implement proper metadata for container images
+
+## Deployment Strategy
+- Implement environment-specific deployment workflows
+- Configure proper approval gates for production deployments
+- Use deployment environments with protection rules
+- Implement rollback mechanisms
+- Set up proper status checks for deployments
+
+## Testing Integration
+- Run unit and integration tests before deployment
+- Generate and publish test reports
+- Configure test coverage thresholds
+- Implement end-to-end tests for critical paths
+- Set up proper test matrix for different configurations
+
+## Monitoring and Notifications
+- Set up notifications for workflow failures
+- Implement proper logging for debugging
+- Configure workflow status badges
+- Set up deployment notifications
+- Implement proper error handling and reporting

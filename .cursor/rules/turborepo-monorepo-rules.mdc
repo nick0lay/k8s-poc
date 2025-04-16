@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules for Turborepo & Monorepo Management
+
+## Project Structure
+- Organize code into logical workspaces (apps/, packages/)
+- Keep shared code in packages/ directory
+- Maintain consistent directory structures across workspaces
+- Use relative imports for internal dependencies
+- Implement proper package visibility (public/private)
+
+## Package Management
+- Use PNPM as the package manager
+- Maintain a single package.json at the root
+- Configure proper workspace dependencies
+- Avoid duplicating dependencies across workspaces
+- Use strict versioning for external dependencies
+
+## Build Configuration
+- Configure proper task dependencies in turbo.json
+- Optimize build caching strategy
+- Set up consistent build outputs for all packages
+- Implement proper environment variable handling
+- Configure appropriate scopes for tasks
+
+## Code Sharing
+- Extract common utilities to shared packages
+- Implement proper API boundaries between packages
+- Use TypeScript project references for type sharing
+- Avoid circular dependencies between packages
+- Document public APIs for shared packages
+
+## Development Workflow
+- Configure proper development scripts in package.json
+- Implement consistent testing strategy across packages
+- Set up proper linting and formatting rules
+- Use Turborepo's task filtering for efficient development
+- Configure proper watch mode for local development
+
+## Continuous Integration
+- Set up efficient caching in CI workflows
+- Configure proper build matrix for testing
+- Implement proper dependency installation step
+- Use Turborepo's remote caching if applicable
+- Configure efficient artifact management
+
+## Versioning Strategy
+- Implement semantic versioning for packages
+- Use changesets for version management
+- Configure proper publishing workflow
+- Maintain a clear CHANGELOG
+- Use proper git tags for releases
