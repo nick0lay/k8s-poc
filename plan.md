@@ -8,7 +8,7 @@ Legenda:
 
 ## 🧱 Phase 1: Project Foundations
 
-### 🟡 1. Initialize Monorepo with Turborepo
+### 🟢 1. Initialize Monorepo with Turborepo
 - **Description**: Create the project's foundation using Turborepo CLI
 - **Steps**:
   - Run `npx create-turbo@latest` to scaffold the monorepo
@@ -21,7 +21,7 @@ Legenda:
   - PNPM will be used as package manager
   - We'll need a shared library for common code
 
-### 2. Create Minimal Fastify Application
+### 🟢 2. Create Minimal Fastify Application
 - **Description**: Implement a bare-bones Fastify app with a health check endpoint
 - **Steps**:
   - In `apps/fastify-api`, run `npm init -y`
@@ -37,7 +37,7 @@ Legenda:
 
 ## ☁️ Phase 2: Infrastructure Foundation
 
-### 3. Initialize CDKTF Project
+### 🟢 3. Initialize CDKTF Project
 - **Description**: Set up infrastructure as code foundation
 - **Steps**:
   - In `infrastructure` directory, run `cdktf init --template=typescript --local`
@@ -51,7 +51,7 @@ Legenda:
   - Terraform CLI is installed locally
   - Local state management for initial development
   
-### 4. Containerize the Fastify Application
+### 🟡 4. Containerize the Fastify Application
 - **Description**: Create a Docker image for the application
 - **Steps**:
   - Create a multi-stage `Dockerfile` in `apps/fastify-api`

@@ -1,0 +1,12 @@
+{
+  "language": "typescript",
+  "app": "npm run build && node dist/src/index.js",
+  "projectId": "k8s-poc",
+  "sendCrashReports": false,
+  "terraformProviders": ["aws@~>4.67.0"],
+  "terraformModules": [],
+  "context": {
+    "excludeStackIdFromLogicalIds": "true",
+    "allowSepCharsInLogicalIds": "true"
+  }
+} 
