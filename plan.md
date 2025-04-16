@@ -51,7 +51,7 @@ Legenda:
   - Terraform CLI is installed locally
   - Local state management for initial development
   
-### 🟡 4. Containerize the Fastify Application
+### 🟢 4. Containerize the Fastify Application
 - **Description**: Create a Docker image for the application
 - **Steps**:
   - Create a multi-stage `Dockerfile` in `apps/fastify-api`
@@ -66,7 +66,7 @@ Legenda:
 
 ## 🛠️ Phase 3: Basic Infrastructure Deployment
 
-### 5. Define VPC and Network Resources
+### 🟡 5. Define VPC and Network Resources
 - **Description**: Create networking infrastructure using CDKTF
 - **Steps**:
   - Create a VPC class in `infrastructure/lib/vpc.ts`
