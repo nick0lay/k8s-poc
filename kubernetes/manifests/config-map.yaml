@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fastify-config
+  namespace: fastify-api
+data:
+  PORT: "3000"
+  HOST: "0.0.0.0"
+  LOG_LEVEL: "info"
+  WELCOME_MESSAGE: "Hello from Fastify API on Kubernetes!"

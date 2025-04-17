@@ -78,7 +78,7 @@ This refined plan outlines the step-by-step implementation of a Fastify service 
 
 ## 🚢 Phase 4: EKS Cluster Setup
 
-### ⚪ 7. Deploy EKS Cluster
+### 🟢 7. Deploy EKS Cluster
 - **Description**: Create a working EKS cluster in the existing VPC
 - **Details**:
   - Adapt the sketch in `tmp/infra/cluster.tf` to the Terraform HCL infrastructure
