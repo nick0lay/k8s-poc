@@ -1,0 +1,21 @@
+apiVersion: autoscaling/v2                         # Use the autoscaling/v2 API (allows resource metrics)
+kind: HorizontalPodAutoscaler                      # Kind signifies an HPA resource
+metadata:
+  name: fastify-app-hpa                            # Name of the HPA resource
+  namespace: default                               # Namespace of the target deployment (assumed default here)
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: fastify-app-deployment                   # The HPA targets this Deployment to scale (must match Deployment metadata.name)
+  minReplicas: 2                                   # Minimum number of pod replicas to maintain
+  maxReplicas: 10                                  # Maximum number of pod replicas allowed
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu                                    # Target CPU usage
+      target:
+        type: Utilization
+        averageUtilization: 70                     # Aim to keep average CPU at 70% of requested CPU across pods
+  # When average CPU usage across pods goes above 70% of their requests, HPA will add pods (up to maxReplicas).
+  # When usage falls below 70% for a while, HPA will scale down pods (not below minReplicas).

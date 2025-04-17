@@ -1,0 +1,7 @@
+apiVersion: v1                                     # API version for ConfigMap
+kind: ConfigMap                                    # Kind signifies a ConfigMap
+metadata:
+  name: fastify-config                             # Name of the ConfigMap
+data:
+  WELCOME_MESSAGE: "Hello from Fastify on EKS!"    # Example configuration value; this will be available as ENV var WELCOME_MESSAGE
+  # You can add more configuration key-value pairs as needed, all will be provided to the Fastify app as environment variables.

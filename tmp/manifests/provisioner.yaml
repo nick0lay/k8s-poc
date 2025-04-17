@@ -1,0 +1,23 @@
+apiVersion: karpenter.sh/v1alpha5                  # Karpenter Provisioner API version (v1alpha5 as of Karpenter 1.x)
+kind: Provisioner                                  # Kind signifies a Karpenter Provisioner resource
+metadata:
+  name: default-provisioner                        # Name of the provisioner (can be referenced or left as "default")
+spec:
+  requirements:
+  - key: "karpenter.sh/capacity-type"
+    operator: In
+    values: ["on-demand"]                          # Only launch On-Demand instances (no spot instances in this provisioner)
+  - key: "kubernetes.io/arch"
+    operator: In
+    values: ["arm64"]                              # Only launch nodes with ARM64 architecture (AWS Graviton processors)
+  - key: "node.kubernetes.io/instance-type"
+    operator: In
+    values: ["t4g.small", "c6g.medium"]            # Restrict allowed EC2 instance types to t4g.small and c6g.medium (small Graviton2 instances)
+  provider:
+    subnetSelector:
+      kubernetes.io/cluster/<CLUSTER_NAME>: "shared"   # Use subnets tagged for this EKS cluster (replace <CLUSTER_NAME> with your EKS cluster's name)
+    securityGroupSelector:
+      karpenter.sh/discovery: <CLUSTER_NAME>           # Use security groups tagged for Karpenter discovery (typically the cluster's node security group)
+    instanceProfile: "KarpenterNodeInstanceProfile"    # Instance profile that Karpenter will attach to new nodes (must match the one created in Terraform)
+  ttlSecondsAfterEmpty: 30                         # If a node is empty (no pods) for 30 seconds, Karpenter will consider terminating it to save cost
+  # ttlSecondsUntilExpired: 2592000                # (Optional) Max age for nodes (in seconds) before they're recycled. For example, 30 days (2592000s).

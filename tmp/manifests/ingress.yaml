@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1                   # API version for Ingress (networking.k8s.io/v1 is stable)
+kind: Ingress                                      # Kind signifies an Ingress resource
+metadata:
+  name: fastify-ingress                            # Name of the Ingress resource
+  annotations:
+    kubernetes.io/ingress.class: "alb"             # Use the AWS ALB Ingress Controller (IngressClass "alb")
+    alb.ingress.kubernetes.io/scheme: "internet-facing"   # Scheme for ALB: "internet-facing" creates a public ALB (accessible from the internet)
+    alb.ingress.kubernetes.io/target-type: "ip"    # Target type "ip" means ALB will send traffic directly to pod IPs (instead of instance NodePort)
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'  # Listen on port 80 for HTTP (no HTTPS listener)
+    # Note: Ensure the AWS Load Balancer Controller is installed in the cluster for these annotations to take effect.
+spec:
+  rules:
+  - http:
+      paths:
+      - path: "/"                                  # Path to match (here "/" means all requests to the domain)
+        pathType: Prefix                           # Use Prefix matching for the path
+        backend:
+          service:
+            name: fastify-service                  # Backend service name to route traffic to
+            port:
+              number: 80                           # Service port to use (must match the Service's port, here 80)

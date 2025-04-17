@@ -1,0 +1,34 @@
+apiVersion: apps/v1                                # Kubernetes API version for Deployments
+kind: Deployment                                   # Kind signifies this is a Deployment object
+metadata:
+  name: fastify-app-deployment                     # Name of the Deployment
+  labels:
+    app: fastify-app                               # Label to identify the app; used by Service and HPA selectors
+spec:
+  replicas: 2                                      # Start with 2 replicas (minimum as defined by HPA)
+  selector:
+    matchLabels:
+      app: fastify-app                             # Pods managed by this Deployment must have label app=fastify-app
+  template:                                        # Template for creating actual pods
+    metadata:
+      labels:
+        app: fastify-app                           # Label pods with app=fastify-app (matches Deployment selector)
+    spec:
+      containers:
+      - name: fastify-app-container                # Name of the container in the pod
+        image: <ACCOUNT_ID>.dkr.ecr.eu-central-1.amazonaws.com/fastify-app:latest  # Docker image for the Fastify app (to be built and pushed to ECR by user)
+        imagePullPolicy: Always                    # Always pull image on launch (ensure latest image is used; good for dev, can adjust for prod)
+        ports:
+        - containerPort: 3000                      # The Fastify app listens on port 3000 inside the container
+        envFrom:
+        - configMapRef:
+            name: fastify-config                   # Load all environment variables from the ConfigMap named "fastify-config"
+        resources:
+          requests:
+            cpu: "100m"                            # Request 0.1 CPU (100 millicpu); HPA uses this as the baseline for scaling calculations
+            memory: "128Mi"                        # Request 128Mi of memory
+          limits:
+            cpu: "200m"                            # Limit the container to 0.2 CPU
+            memory: "256Mi"                        # Limit the container to 256Mi memory
+        # Note: The Fastify app includes a route (e.g., GET /delay) that triggers a setTimeout and returns a fixed response after a delay.
+        # This simulates a delayed operation for testing autoscaling (HPA will scale pods if CPU usage goes high during the delay).
