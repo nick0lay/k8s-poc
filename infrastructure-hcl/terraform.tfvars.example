@@ -1,0 +1,12 @@
+aws_region  = "eu-central-1"
+environment = "dev"
+vpc_id      = "vpc-06f30b3d5e209e3de"
+public_subnet_ids  = [
+  "subnet-0d7fac47d2397af2b",
+  "subnet-0e5d668f9016bc938"
+]
+private_subnet_ids  = [
+  "subnet-020ac98bbf11e1ff0",
+  "subnet-07aa04583dc353c9b"
+]
+cluster_name = "fastify-eks-cluster" 
